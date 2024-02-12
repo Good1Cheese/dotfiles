@@ -1,8 +1,12 @@
-set fishPath ~/.config/fish
+set fish ~/.config/fish
+set functions ~/.config/fish/functions
 
 set -x VISUAL nvim
 set -x EDITOR nvim
 
-source $fishPath/aliases.fish
-source $fishPath/keymaps.fish
-source $fishPath/nvim_cfg_switcher.fish
+source $fish/aliases.fish
+source $fish/keymaps.fish
+
+source $functions/nvim_cfg_switcher.fish
+source $functions/br.fish
+source $functions/lfcd.fish

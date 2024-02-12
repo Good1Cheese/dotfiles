@@ -8,7 +8,7 @@ set preview true
 set preview true
 set hidden true
 set drawbox true
-# set icons true
+set icons true
 set ignorecase true
 
 # Custom Functions
@@ -146,6 +146,8 @@ map f
 map ee $nvim "$f"
 map ed $qq "$f"
 
+map <enter> shell
+
 # Archive Mappings
 map az zip
 map at tar
@@ -179,7 +181,7 @@ map DD delete
 map p paste
 map x cut
 map y copy
-map <enter> open
+# map <enter> open
 map mf mkfile
 map mr sudomkfile
 map md mkdir

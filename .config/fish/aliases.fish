@@ -5,6 +5,7 @@ alias fide='cd ~/.config/fish'
 alias lef='cd ~/.config/lf'
 
 alias lg='lazygit'
+alias lf='lfcd'
 alias qq='neovide'
 alias sx='startx'
 
