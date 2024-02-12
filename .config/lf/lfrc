@@ -143,8 +143,9 @@ map e
 map f
 
 # File Openers
-map ee $nvim "$f"
-map ed $qq "$f"
+map ee $nvim .
+map ew $nvim "$f"
+# map ed $qq "$f"
 
 map <enter> shell
 
