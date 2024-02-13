@@ -78,9 +78,9 @@ cmd open_config  ${{
   $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
 }}
 
-cmd dragon $dragon-drop -a -x $fx
-cmd dragon-stay %dragon-drop -a $fx
-cmd dragon-individual %dragon-drop $fx
+cmd dragon $sudo dragon-drop -a -x "$fx"
+cmd dragon-stay %dragon-drop -a "$fx"
+cmd dragon-individual %dragon-drop "$fx"
 cmd cpdragon %cpdragon
 cmd mvdragon %mvdragon
 cmd dlfile %dlfile
@@ -143,8 +143,8 @@ map e
 map f
 
 # File Openers
-map ee $nvim .
-map ew $nvim "$f"
+map ew $nvim .
+map ee $nvim "$f"
 # map ed $qq "$f"
 
 map <enter> shell
@@ -199,10 +199,11 @@ map C clear
 map qunselect
 
 # Movement
-map gq cd ~/.local/share/Trash/files
-map ga cd ~/.config/nvim
-map gs cd ~/Projects
-map gd cd ~/.config/awesome
+map gn cd ~/.config/nvim
+map gp cd ~/Projects
+map ga cd ~/.config/awesome
 map gf cd ~/.config/fish
 map gg cd ~/.config/lf
-map gh cd ~/dotfiles
+map gd cd ~/dotfiles
+map gr cd /run/media/cheese
+map gs cd /mnt/sda1/SteamLibrary/steamapps/common
