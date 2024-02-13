@@ -1,0 +1,17 @@
+[font]
+size = 12
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[shell]
+args = ["--private"]
+program = "/bin/fish"
+
+[window]
+opacity = 1
