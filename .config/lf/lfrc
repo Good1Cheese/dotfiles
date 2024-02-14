@@ -201,6 +201,7 @@ map qunselect
 # Movement
 map gn cd ~/.config/nvim
 map gp cd ~/Projects
+map gq cd ~/.config/compfy
 map ga cd ~/.config/awesome
 map gf cd ~/.config/fish
 map gg cd ~/.config/lf
