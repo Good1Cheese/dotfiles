@@ -50,7 +50,7 @@ cmd sudomkfile ${{
   sudo $EDITOR $ans
 }}
 
-cmd setwallpaper %cp "$f" ~/.config/wall.png && xwallpaper --zoom "$f"
+cmd setwallpaper %cp "$f" ~/.config/awesome/wallpapers/main.png && xwallpaper --zoom "$f"
 
 cmd fzf_jump ${{
   res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
@@ -143,8 +143,8 @@ map e
 map f
 
 # File Openers
-map ew $nvim .
-map ee $nvim "$f"
+map ew $devour neovide --no-fork .
+map ee $devour neovide --no-fork "$f"
 # map ed $qq "$f"
 
 map <enter> shell

@@ -6,8 +6,9 @@ alias lef='cd ~/.config/lf'
 
 alias lg='lazygit'
 alias lf='lfcd'
-alias qq='neovide'
 alias sx='startx'
+alias qq='devour neovide --no-fork'
+# devour neovide --no-fork
 
 alias sudo='doas'
 alias pac='doas pacman'
