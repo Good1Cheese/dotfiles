@@ -198,8 +198,13 @@ map R reload
 map C clear
 map qunselect
 
+map na $lazygit
+# map na $lazygit .
+
 # Movement
 map gn cd ~/.config/nvim
+map ge cd ~/Downloads
+map gw cd ~/Apps
 map gp cd ~/Projects
 map gq cd ~/.config/compfy
 map ga cd ~/.config/awesome
