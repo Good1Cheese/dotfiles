@@ -78,7 +78,7 @@ cmd open_config  ${{
   $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
 }}
 
-cmd dragon $sudo dragon-drop -a -x "$fx"
+cmd dragon $dragon-drop -a -x "$fx"
 cmd dragon-stay %dragon-drop -a "$fx"
 cmd dragon-individual %dragon-drop "$fx"
 cmd cpdragon %cpdragon
@@ -147,7 +147,7 @@ map ew $devour neovide --no-fork .
 map ee $devour neovide --no-fork "$f"
 # map ed $qq "$f"
 
-map <enter> shell
+# map <enter> l
 
 # Archive Mappings
 map az zip
@@ -182,7 +182,7 @@ map DD delete
 map p paste
 map x cut
 map y copy
-# map <enter> open
+map <enter> open
 map mf mkfile
 map mr sudomkfile
 map md mkdir
