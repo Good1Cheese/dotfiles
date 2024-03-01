@@ -78,12 +78,18 @@ cmd open_config  ${{
   $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
 }}
 
-cmd dragon $dragon-drop -a -x "$fx"
-cmd dragon-stay %dragon-drop -a "$fx"
-cmd dragon-individual %dragon-drop "$fx"
+cmd dragon $dragon-drop -a -x $fx
+cmd dragon-stay $dragon-drop -a $fx
+cmd dragon-individual $dragon-drop $fx
 cmd cpdragon %cpdragon
 cmd mvdragon %mvdragon
 cmd dlfile %dlfile
+
+cmd renameall ${{
+    for i in $fx; do
+        mv $i `echo $i | sed -e 's/ /_/g'`;
+    done
+}}
 
 # Archive bindings
 cmd unarchive ${{
@@ -168,6 +174,7 @@ map ff fzf_jump
 
 # Dragon Mapping
 map dr dragon
+map de renameall
 map ds dragon-stay
 map di dragon-individual
 map dm mvdragon
@@ -177,7 +184,7 @@ map dl dlfile
 map ss stripspace
 
 # Basic Functions
-map . set hidden!
+# map . set hidden!
 map DD delete
 map p paste
 map x cut
@@ -187,7 +194,11 @@ map mf mkfile
 map mr sudomkfile
 map md mkdir
 map ms $mkscript
+
 map ch chmod
+map ca $lazygit
+map cs $echo -n $(pwd) | xclip -selection clipboard
+
 map bg setwallpaper
 map o open_config
 map br $vimv $fx
@@ -197,9 +208,6 @@ map L bottom
 map R reload
 map C clear
 map qunselect
-
-map na $lazygit
-# map na $lazygit .
 
 # Movement
 map gn cd ~/.config/nvim
@@ -212,4 +220,5 @@ map gf cd ~/.config/fish
 map gg cd ~/.config/lf
 map gd cd ~/dotfiles
 map gr cd /run/media/cheese
-map gs cd /mnt/sda1/SteamLibrary/steamapps/common
+map gs cd ~/.local/share/Steam/steamapps/common
+map gh cd /mnt/sda1/SteamLibrary/steamapps/common
