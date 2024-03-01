@@ -13,8 +13,8 @@ alias qq="devour neovide --no-fork"
 # devour neovide --no-fork
 
 alias sudo="doas"
-alias pac="doas pacman -S"
-alias yay="doas yay --noconfirm"
+alias pac="doas pacman"
+alias yay="yay --noconfirm"
 alias aurupt="yay -Syyu"
 alias upt="doas pacman -Syu"
 alias std="shutdown now"
