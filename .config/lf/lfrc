@@ -93,13 +93,7 @@ cmd renameall ${{
 
 # Archive bindings
 cmd unarchive ${{
-  case "$f" in
-      *.zip) unzip "$f" ;;
-      *.tar.gz) tar -xzvf "$f" ;;
-      *.tar.bz2) tar -xjvf "$f" ;;
-      *.tar) tar -xvf "$f" ;;
-      *) echo "Unsupported format" ;;
-  esac
+    atool -x "$fx"
 }}
 
 cmd zip %zip -r "$f" "$f"
@@ -197,6 +191,8 @@ map ms $mkscript
 
 map ch chmod
 map ca $lazygit
+map cw $wine "$f"
+map cd $ncdu
 map cs $echo -n $(pwd) | xclip -selection clipboard
 
 map bg setwallpaper
@@ -211,9 +207,11 @@ map qunselect
 
 # Movement
 map gn cd ~/.config/nvim
+map g~ cd ~/
 map ge cd ~/Downloads
 map gw cd ~/Apps
 map gp cd ~/Projects
+map g1 cd ~/Torrents
 map gq cd ~/.config/compfy
 map ga cd ~/.config/awesome
 map gf cd ~/.config/fish
@@ -221,4 +219,5 @@ map gg cd ~/.config/lf
 map gd cd ~/dotfiles
 map gr cd /run/media/cheese
 map gs cd ~/.local/share/Steam/steamapps/common
+map gm cd /mnt/sda1
 map gh cd /mnt/sda1/SteamLibrary/steamapps/common
