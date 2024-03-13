@@ -91,6 +91,14 @@ cmd renameall ${{
     done
 }}
 
+cmd moveselected ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+
+  mv $fx $ans
+}}
+
 # Archive bindings
 cmd unarchive ${{
     atool -x "$fx"
@@ -187,6 +195,7 @@ map <enter> open
 map mf mkfile
 map mr sudomkfile
 map md mkdir
+map me moveselected
 map ms $mkscript
 
 map ch chmod
@@ -211,6 +220,7 @@ map g~ cd ~/
 map ge cd ~/Downloads
 map gw cd ~/Apps
 map gp cd ~/Projects
+map go cd ~/Personal
 map g1 cd ~/Torrents
 map gq cd ~/.config/compfy
 map ga cd ~/.config/awesome
