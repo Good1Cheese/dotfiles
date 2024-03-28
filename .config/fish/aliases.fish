@@ -10,6 +10,7 @@ alias sx="startx"
 alias umnt="fusermount -u"
 alias phonemnt="aft-mtp-mount"
 alias qq="devour neovide --no-fork"
+# alias neovide="neovide --no-vsync"
 # devour neovide --no-fork
 
 alias sudo="doas"

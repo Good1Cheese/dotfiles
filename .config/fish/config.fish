@@ -1,6 +1,9 @@
 set fish ~/.config/fish
 set functions ~/.config/fish/functions
 
+# fish_add_path /home/cheese/.local/share/gem/ruby/3.0.0/bin
+fish_add_path /root/.local/share/gem/ruby/3.0.0/bin/
+
 set -x VISUAL nvim
 set -x EDITOR nvim
 

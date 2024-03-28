@@ -86,9 +86,12 @@ cmd mvdragon %mvdragon
 cmd dlfile %dlfile
 
 cmd renameall ${{
-    for i in $fx; do
-        mv $i `echo $i | sed -e 's/ /_/g'`;
-    done
+    files=$(printf "$fx" | tr ' ' '_')
+    lf -remote "send $id echomsg $files"
+
+    # for f in "$f"; do
+    #     mv "$f" "${f// /_}"
+    # done
 }}
 
 cmd moveselected ${{
@@ -143,8 +146,8 @@ map m
 map t
 map o
 map n
-map "'"
-map '"'
+# map "'"
+# map '"'
 map d
 map c
 map e
@@ -188,7 +191,7 @@ map ss stripspace
 # Basic Functions
 # map . set hidden!
 map DD delete
-map p paste
+map p :paste; clear
 map x cut
 map y copy
 map <enter> open
@@ -201,6 +204,7 @@ map ms $mkscript
 map ch chmod
 map ca $lazygit
 map cw $wine "$f"
+map cr $btop
 map cd $ncdu
 map cs $echo -n $(pwd) | xclip -selection clipboard
 
@@ -218,7 +222,7 @@ map qunselect
 map gn cd ~/.config/nvim
 map g~ cd ~/
 map ge cd ~/Downloads
-map gw cd ~/Apps
+map gw cd ~/.wine
 map gp cd ~/Projects
 map go cd ~/Personal
 map g1 cd ~/Torrents

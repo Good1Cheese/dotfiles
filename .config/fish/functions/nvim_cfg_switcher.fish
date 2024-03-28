@@ -1,5 +1,5 @@
 function nvims
-    set items Nvchad Astronvim nvim
+    set items Nvchad Astronvim nvim-modular nvim
     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
     if [ -z $config ]
         echo "Nothing selected"
