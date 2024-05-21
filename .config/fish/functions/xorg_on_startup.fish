@@ -1,0 +1,1 @@
+pidof -q X || startx

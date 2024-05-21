@@ -1,0 +1,113 @@
+map m
+map t
+map <space>
+map o
+map n
+map d
+map c
+map e
+map f
+
+map { half-up
+map } half-down
+
+map n :toggle; down
+
+map E $nvim
+map e $nvim "$f"
+
+map az zip
+map at tar
+map ag targz
+map ab targz
+map au unarchive
+
+map dd trash
+map tc clear_trash
+map tr restore_trash
+map ttt ${{alacritty}}
+
+map fa broot_jump
+map ff fzf_jump
+
+map dr dragon
+map de renameall
+map ds dragon-stay
+map di dragon-individual
+map dm mvdragon
+map dc cpdragon
+map dl dlfile
+
+map ss stripspace
+
+map DD delete
+map p :paste; clear
+map x cut
+map y copy
+map <enter> open
+
+map mf mkfile
+map mr sudomkfile
+map md mkdir
+map me moveselected
+map ms $mkscript
+
+map U $lazygit
+
+map ch chmod
+map cl $lazygit
+map cw $wine "$f"
+map cb $btop
+map cn $ncdu
+map cN $ncdu --exclude /mnt/
+map cd $dust
+map cs $echo -n $(pwd) | xclip -selection clipboard
+
+map bg setwallpaper
+map o open_config
+map br $vimv $fx
+map r rename
+map H top
+map L bottom
+map R reload
+map C clear
+map qunselect
+
+map <space>~ cd ~/
+map <space>c cd ~/.config
+
+map <space>w cd ~/.wine
+map <space>n cd ~/.config/nvim
+map <space>a cd ~/.config/awesome
+map <space>f cd ~/.config/fish
+map <space>C cd ~/.config/compfy
+map <space>l cd ~/.config/lf
+
+map <space>[ cd ~/Pictures
+map <space>v cd ~/Video
+
+cmd quit-and-cd &{{
+    pwd > $LF_CD_FILE
+    lf -remote "send $id quit"
+}}
+
+map Q quit-and-cd
+
+map <space>D cd ~/Downloads
+map <space>p cd ~/Projects
+map <space>U cd ~/Projects/Unity
+map <space>P cd ~/Personal
+map <space>t cd ~/Torrents
+map <space>N cd ~/nixos-config
+map <space>d cd ~/dotfiles
+
+map <space>T cd ~/.local/share/Trash
+map <space>r cd /run/media/
+
+map <space>s cd ~/.local/share/Steam/steamapps/common
+map <space>S cd ~/.local/share/Steam/steamapps/common/GarrysMod/garrysmod/gamemodes/cstrike
+
+map <space>h cd /mnt/hdd/SteamLibrary/steamapps/common
+
+map <space>m cd /mnt/hdd
+map <space>u cd /mnt/hdd/Linux_Unreal_Engine_5.3.2/Engine/Binaries/Linux

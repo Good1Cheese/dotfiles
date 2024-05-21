@@ -1,0 +1,298 @@
+# Basic Settings
+
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+# set previewer ~/.config/lf/ueberzug/preview
+# set cleaner ~/.config/lf/ueberzug/clean
+
+# set previewer ~/.config/lf/kitty2/preview
+# set cleaner ~/.config/lf/kitty2/clean
+
+# set previewer ~/.config/lf/kitty/preview
+# set cleaner ~/.config/lf/kitty/clean
+
+set incsearch
+set incfilter
+#set globsearch on
+set ratios 2:3:4 # 2:3:7:7
+set truncatechar "…"
+set waitmsg "\033[1;31m⏎\033[m"
+set timefmt "02/01/2006 15:04:05 "
+set infotimefmtnew '02/01 15:04'
+set infotimefmtold '02/01/06'
+set errorfmt "\033[1;31m"
+set numberfmt "\033[38;2;75;87;116m"
+set dircounts
+set tabstop 4
+set scrolloff 5
+set wrapscroll
+set shellopts '-eu'
+set ifs "\n"
+set shell "bash"
+set rulerfmt 'df:acc:progress:selection:filter:ind'
+set cursorpreviewfmt "\033[7m"
+
+set preview true
+set hidden true
+set drawbox true
+set icons true
+set ignorecase true
+
+# Custom Functions
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        application/x-executable) "$f";;
+        *) xdg-open "$f" ;;
+    esac
+}}
+
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd chmod ${{
+  printf "Mode Bits: "
+  read ans
+
+  for file in "$fx"
+  do
+    chmod $ans $file
+  done
+
+  lf -remote 'send reload'
+}}
+
+cmd sudomkfile ${{
+  printf "File Name: "
+  read ans
+  sudo $EDITOR $ans
+}}
+
+cmd setwallpaper %cp "$f" ~/.config/awesome/wallpapers/main.png && xwallpaper --zoom "$f"
+
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd broot_jump ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd open_config  ${{
+  $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
+}}
+
+cmd dragon $dragon -a -x $fx
+cmd dragon-stay $dragon -a $fx
+cmd dragon-individual $dragon $fx
+cmd cpdragon %cpdragon
+cmd mvdragon %mvdragon
+cmd dlfile %dlfile
+
+cmd renameall ${{
+    files=$(printf "$fx" | tr ' ' '_')
+    lf -remote "send $id echomsg $files"
+
+    # for f in "$f"; do
+    #     mv "$f" "${f// /_}"
+    # done
+}}
+
+cmd moveselected ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+
+  mv $fx $ans
+}}
+
+# Archive bindings
+cmd unarchive ${{
+    atool -x "$fx"
+}}
+
+cmd zip %zip -r "$f" "$f"
+cmd tar %tar cvf "$f.tar" "$f"
+cmd targz %tar cvzf "$f.tar.gz" "$f"
+cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+
+# Trash cli bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    # extract the substring from start of string up to delimiter.
+    # this is the first "element" of the string.
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    # if there's only one element left, set `files` to an empty string.
+    # this causes us to exit this `while` loop.
+    # else, we delete the first "element" of the string from files, and move onto the next.
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+cmd stripspace %stripspace "$f"
+
+# Bindings
+# Remove some defaults
+map m
+map t
+map <space>
+map o
+map n
+# map "'"
+# map '"'
+map d
+map c
+map e
+map f
+
+map { half-up
+map } half-down
+
+map n :toggle; down
+
+# File Openers
+# map ew $devour neovide --no-fork .
+# map er $devour neovide --no-fork "$f"
+map E $nvim
+map e $nvim "$f"
+# map es $steam-run nvim
+# map ed $steam-run nvim "$f"
+# map <enter> l
+
+# Archive Mappings
+map az zip
+map at tar
+map ag targz
+map ab targz
+map au unarchive
+
+# Trash Mappings
+map dd trash
+map tc clear_trash
+map tr restore_trash
+map ttt ${{alacritty}}
+
+# Broot Mapping
+map fa broot_jump
+map ff fzf_jump
+
+# Dragon Mapping
+map dr dragon
+map de renameall
+map ds dragon-stay
+map di dragon-individual
+map dm mvdragon
+map dc cpdragon
+map dl dlfile
+
+map ss stripspace
+
+# Basic Functions
+# map . set hidden!
+map DD delete
+map p :paste; clear
+map x cut
+map y copy
+map <enter> open
+
+map mf mkfile
+map mr sudomkfile
+map md mkdir
+map me moveselected
+map ms $mkscript
+
+map U $lazygit
+
+map ch chmod
+map cl $lazygit
+map cw $wine "$f"
+map cb $btop
+map cn $ncdu
+map cN $ncdu --exclude /mnt/
+map cd $dust
+map cs $echo -n $(pwd) | xclip -selection clipboard
+
+map bg setwallpaper
+map o open_config
+map br $vimv $fx
+map r rename
+map H top
+map L bottom
+map R reload
+map C clear
+map qunselect
+
+# Movement
+map <space>~ cd ~/
+
+map <space>c cd ~/.config
+map <space>C cd ~/.config/compfy
+
+map <space>n cd ~/.config/nvim
+map <space>N cd ~/nixos-config
+
+map <space>w cd ~/.wine
+map <space>a cd ~/.config/awesome
+map <space>f cd ~/.config/fish
+map <space>l cd ~/.config/lf
+map <space>s cd ~/.local/share/Steam/steamapps/common
+map <space>h cd /mnt/hdd/SteamLibrary/steamapps/common
+map <space>r cd /run/media/
+map <space>m cd /mnt/hdd
+map <space>[ cd ~/Pictures
+map <space>v cd ~/Video
+
+map <space>P cd ~/Personal
+map <space>p cd ~/Projects
+
+map <space>1 cd ~/.local/share/Steam/steamapps/common/GarrysMod/garrysmod/gamemodes/cstrike
+map <space>2 cd ~/Projects/MishaSite/new/ChinDin
+map <space>3 cd ~/Projects/codewars-relay
+
+map <space>u cd /mnt/hdd/Linux_Unreal_Engine_5.3.2/Engine/Binaries/Linux
+map <space>U cd ~/Projects/Unity
+
+map <space>T cd ~/.local/share/Trash
+map <space>t cd ~/Torrents
+
+map <space>D cd ~/Downloads
+map <space>d cd ~/dotfiles

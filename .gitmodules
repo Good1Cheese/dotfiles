@@ -1,0 +1,9 @@
+[submodule ".config/awesome"]
+	path = .config/awesome
+	url = git@github.com:Good1Cheese/awesome.git
+[submodule ".config/fish/functions/statham-quotes"]
+	path = .config/fish/functions/statham-quotes
+	url = https://github.com/birhaman/statham-quotes.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:Good1Cheese/nvim.git
