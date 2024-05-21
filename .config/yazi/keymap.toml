@@ -164,6 +164,7 @@ keymap = [
   { on = ["<Space>", "a"], run = "cd ~/.config/awesome" },
   { on = ["<Space>", "f"], run = "cd ~/.config/fish" },
   { on = ["<Space>", "l"], run = "cd ~/.config/yazi" },
+  { on = ["<Space>", "q"], run = "cd ~/.config/qutebrowser" },
   { on = ["<Space>", "w"], run = "cd ~/.config/wezterm" },
   { on = ["<Space>", "W"], run = "cd ~/Work" },
   { on = ["<Space>", "v"], run = "cd ~/Videos" },

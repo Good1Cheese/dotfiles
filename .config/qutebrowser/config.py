@@ -12,10 +12,13 @@ c.aliases = {
     "h": "help",
 }
 
-c.confirm_quit = ["downloads"]
+# c.url.default_page = "file:///home/cheese/dotfiles/.config/qutebrowser/homepage.html"
+# c.url.start_pages = "file:///home/cheese/dotfiles/.config/qutebrowser/homepage.html"
 
 # proxy_current = 'http://DXf2sxr5:2EVysff7@103.163.53.91:64692/'
 # c.content.proxy = proxy_current
+
+c.confirm_quit = ["downloads"]
 
 c.new_instance_open_target = "tab-silent"
 c.new_instance_open_target_window = "last-focused"
@@ -36,7 +39,7 @@ c.content.pdfjs = True
 c.tabs.position = "right"
 c.tabs.title.format_pinned = "{index} {audio}"
 c.tabs.show = "multiple"
-c.tabs.width = 250
+c.tabs.width = 200
 c.tabs.background = True
 c.tabs.favicons.scale = 0.9
 c.tabs.last_close = "close"
@@ -50,6 +53,9 @@ c.search.incremental = False
 
 c.scrolling.bar = "never"
 
+c.statusbar.position = "top"
+
+# c.completion.show = "auto"
 c.completion.shrink = True
 c.completion.scrollbar.width = 0
 c.completion.scrollbar.padding = 0
@@ -59,17 +65,6 @@ c.hints.auto_follow = "always"
 c.hints.mode = "letter"
 if c.hints.mode == "number":
     c.hints.auto_follow_timeout = 400
-
-c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/?q={}",
-    "sx": "https://search.realnephestate.xyz/search?q={}",
-    "yt": "https://www.youtube.com/results?search_query={}",
-}
-
-# Setting default page for when opening new tabs or new windows with
-# commands like :open -t and :open -w .
-c.url.default_page = "https://distro.tube/"
-c.url.start_pages = "https://distro.tube/"
 
 config.load_autoconfig()
 
