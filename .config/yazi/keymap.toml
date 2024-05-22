@@ -96,6 +96,7 @@ keymap = [
 
   # Archieve
   { on = ["A", "z"], run = '''shell 'zip archieve -jr "$@"' --block --confirm''', desc = "ZIP files" },
+  { on = ["A", "x"], run = '''shell 'zip archieve -r "$@"' --block --confirm''', desc = "ZIP J files" },
 
   # Linemode
   { on = ["m", "s"], run = "linemode size", desc = "Set linemode to size" },
@@ -182,8 +183,8 @@ keymap = [
   { on = ["<Space>", "u"], run = "cd /mnt/hdd/Linux_Unreal_Engine_5.3.2/Engine/Binaries/Linux" },
   { on = ["<Space>", "U"], run = "cd ~/Projects/Unity" },
 
-  { on = ["<Space>", "T"], run = "cd ~/.local/share/Trash" },
-  { on = ["<Space>", "t"], run = "cd ~/Torrents" },
+  { on = ["<Space>", "t"], run = "cd ~/.local/share/Trash" },
+  { on = ["<Space>", "T"], run = "cd ~/Torrents" },
 
   { on = ["<Space>", "D"], run = "cd ~/Downloads" },
   { on = ["<Space>", "d"], run = "cd ~/dotfiles" },

@@ -9,6 +9,7 @@ alias ff="fastfetch"
 
 alias dudo="devour sudo"
 
+alias simplescreenrecorder="simplescreenrecorder --no-systray"
 alias qbittorrent="devour qbittorrent"
 alias mpv="devour mpv"
 

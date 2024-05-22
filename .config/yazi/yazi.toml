@@ -29,6 +29,7 @@ edit = [
   # editor
   { run = '$EDITOR "$@"', block = true, for = "unix" },
   { run = 'code "$@"', block = true, for = "unix" },
+  { run = 'firefox "$1"', block = true, for = "unix" },
   { run = 'code "%*"', orphan = true, for = "windows" },
 ]
 open = [
