@@ -1,6 +1,6 @@
-c.url.open_base_url = True
+# c.url.open_base_url = True
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/?q={}",
-    "sx": "https://search.realnephestate.xyz/search?q={}",
+    "DEFAULT": "https://priv.au/search?q={}",
+    "dg": "https://duckduckgo.com/?q={}",
     "yt": "https://www.youtube.com/results?search_query={}",
 }
