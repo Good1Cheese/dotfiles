@@ -79,7 +79,6 @@ keymap = [
   { on = [ "b", "D" ], run = "plugin bookmarks --args=delete_all", desc = "Delete all bookmark" },
 
   { on = ["c", "c"], run = "copy path", desc = "Copy the absolute path" },
-  { on = ["c", "c"], run = "copy path", desc = "Copy the absolute path" },
   { on = ["c", "b"], run = '''shell 'btop' --block --confirm''', desc = "BTOP" },
   { on = ["c", "B"], run = '''shell 'bluetuith' --block --confirm''', desc = "BLUETOOTH" },
   { on = ["c", "n"], run = '''shell 'ncdu --color dark --exclude /mnt/' --block --confirm''', desc = "NCDU" },

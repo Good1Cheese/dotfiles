@@ -22,6 +22,8 @@ alias tri="~/dotfiles/.config/fish/functions/nix-trimmer-gen.sh"
 alias reb="sudo nixos-rebuild switch"
 alias fib="git add --all && sudo nixos-rebuild switch --flake ~/nixos-config/"
 
+alias sp="nix search nixpkgs"
+
 alias gsu="git submodule update --init --recursive"
 alias gsa="git submodule add"
 
