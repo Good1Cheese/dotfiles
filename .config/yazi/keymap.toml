@@ -83,7 +83,7 @@ keymap = [
   { on = ["c", "B"], run = '''shell 'bluetuith' --block --confirm''', desc = "BLUETOOTH" },
   { on = ["c", "n"], run = '''shell 'ncdu --color dark --exclude /mnt/' --block --confirm''', desc = "NCDU" },
   { on = ["c", "w"], run = '''shell 'wine "$1"' --block --confirm''', desc = "Open file with wine" },
-  { on = ["c", "W"], run = '''shell 'echo xwallpaper --zoom "$1" > ~/.config/awesome/wallpaper.sh && exec ~/.config/awesome/wallpaper.sh' --confirm''', desc = "Change wallpapers" },
+  { on = ["c", "W"], run = '''shell 'echo xwallpaper --zoom "$1" > ~/.config/awesome/scripts/wallpaper.sh && exec ~/.config/awesome/scripts/wallpaper.sh' --confirm''', desc = "Change wallpapers" },
   { on = ["c", "d"], run = '''shell 'dust' --block --confirm''', desc = "DUST" },
   { on = ["c", "t"], run = '''shell 'gtrash restore' --block --confirm''', desc = "Trash" },
   { on = ["c", "T"], run = '''shell 'gtrash restore-group' --block --confirm''', desc = "G TRASH" },
