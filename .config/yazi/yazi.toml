@@ -28,8 +28,8 @@ ueberzug_offset = [0, 0, 0, 0]
 edit = [
   # editor
   { run = '$EDITOR "$@"', block = true, for = "unix" },
-  { run = 'code "$@"', block = true, for = "unix" },
-  { run = 'firefox "$1"', block = true, for = "unix" },
+  { run = 'nvim "$@"', block = true, for = "unix" },
+  { run = 'librewolf "$1"', block = true, for = "unix" },
   { run = 'code "%*"', orphan = true, for = "windows" },
 ]
 open = [
