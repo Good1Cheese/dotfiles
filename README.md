@@ -10,6 +10,8 @@ https://github.com/solsticegamestudios/GModCEFCodecFix
 * fish ( oh-my-fish, batman, Anonymous Pro Bold 14, Thayer Bright, fonts-powerline )
 * droidcam (v4l2loopback-utils v4l2loopback-dkms, adb)
 
+
+# Legacy
 ### Packages
 ```
 pacman -S neovide discord steam lf btop ncdu dust trash-cli \
